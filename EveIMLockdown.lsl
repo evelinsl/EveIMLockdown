@@ -1,4 +1,13 @@
-string findUser = "cce363c7-9f86-4d11-a0fd-78e2d82fbfe8"; 
+///
+/// EveIMLockdown
+/// Made by Evelin ❤
+///
+/// Check out the Github page for documentation:
+/// https://github.com/evelinsl/EveIMLockdown
+/// 
+
+string findUser = "cce363c7... CHANGE ME";
+
 float range = 2.0;  // Meters
 float interval = 5; // Seconds
 
