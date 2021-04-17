@@ -25,8 +25,6 @@ updateRange(integer inRange)
 
 updateRestrictions()
 {    
-    llSay(0, "personInRange " + (string)personInRange);
-
 
     if(personInRange == -1)
         return;
