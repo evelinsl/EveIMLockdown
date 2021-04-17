@@ -29,16 +29,16 @@ updateRange(integer inRange)
 
 updateRestrictions()
 {
-	if(ownerInRange == -1)
-		return;
+    if(ownerInRange == -1)
+        return;
 
-	string allowIM = "n";
-	if(ownerInRange)
-		allowIM = "y"
-					
-	llOwnerSay("@sendimto:" + findUser + "=" + allowIM);
-	llOwnerSay("@startimto:" + findUser + "=n" + allowIM);
-	llOwnerSay("@recvimfrom:" + findUser + "=n" + allowIM);
+    string allowIM = "n";
+    if(ownerInRange == 0)
+        allowIM = "y";
+                    
+    llOwnerSay("@sendimto:" + findUser + "=" + allowIM);
+    llOwnerSay("@startimto:" + findUser + "=" + allowIM);
+    llOwnerSay("@recvimfrom:" + findUser + "=" + allowIM);
 }
 
 
