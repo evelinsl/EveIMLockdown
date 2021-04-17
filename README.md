@@ -12,7 +12,7 @@ This will block IM's from and to a person if that person is in range.
 
 ## 🔥 Disclaimer
 
-The Evelyn takes no responsibility if this script fuckes up your RLV settings. Use at your own risk and suchs
+The Evelin takes no responsibility if this script fuckes up your RLV settings. Use at your own risk and suchs
 
 Also no warranty or refunds. Okay bye
 
