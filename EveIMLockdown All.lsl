@@ -24,18 +24,14 @@ updateRange(integer inRange)
 
 
 updateRestrictions()
-{
-    llSay(0, "personInRange " + (string)personInRange);
-    
+{    
     if(personInRange == -1)
         return;
 
     string allowIM = "n";
     if(personInRange == 0)
         allowIM = "y";
-        
-    llSay(0, "ALLOW IM? " + allowIM + " - personInRange " + (string)personInRange);    
-                    
+                            
     llOwnerSay("@sendim_sec:" + allowIM);
     llOwnerSay("@startim:" + allowIM);
     llOwnerSay("@recvim_sec:" + allowIM);
