@@ -6,8 +6,8 @@
 /// https://github.com/evelinsl/EveIMLockdown
 /// 
 
-float range = 20.0;  // Meters
-float interval = 10; // Seconds
+float range = 1.0;  // Meters
+float interval = 5; // Seconds
 
 // Don't change this one!
 integer personInRange = -1;
@@ -25,16 +25,19 @@ updateRange(integer inRange)
 
 updateRestrictions()
 {    
+    llSay(0, "personInRange " + (string)personInRange);
+
+
     if(personInRange == -1)
         return;
 
     string allowIM = "n";
     if(personInRange == 0)
         allowIM = "y";
-                            
-    llOwnerSay("@sendim_sec:" + allowIM);
-    llOwnerSay("@startim:" + allowIM);
-    llOwnerSay("@recvim_sec:" + allowIM);
+                                   
+    llOwnerSay("@sendim_sec=" + allowIM);
+    llOwnerSay("@startim=" + allowIM);
+    llOwnerSay("@recvim_sec=" + allowIM);
 }
 
 
