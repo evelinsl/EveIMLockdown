@@ -1,6 +1,6 @@
 ///
 /// EveIMLockdown (ALL)
-/// Made by Evelin ❤
+/// Made by Evelin ❤ 
 ///
 /// Check out the Github page for documentation:
 /// https://github.com/evelinsl/EveIMLockdown
@@ -9,8 +9,9 @@
 float range = 20.0;  // Meters
 float interval = 5; // Seconds
 
-// Don't change this one!
-integer personInRange = -1;
+// Don't change anything below this point
+
+integer personInRange = -1; 
 
 // Owner stuff 
 
@@ -28,7 +29,7 @@ string DIALOG_LEAVE_THE_KEY = "Stop owning";
 string DIALOG_EXIT = "Close";
 
 
-updateRange(integer inRange)
+updateRange(integer inRange) 
 {
     if(inRange == personInRange)
         return;
@@ -66,9 +67,7 @@ updateOwnerRestrictions(integer adding)
 {
     string add = "add";
     if(adding == 0)
-        add = "rem";
-        
-    llSay(0, "Add? " + add);    
+        add = "rem"; 
         
     llOwnerSay("@sendim:" + (string)ownerKey + "=" + add);
     llOwnerSay("@startim:" + (string)ownerKey + "=" + add);
@@ -123,13 +122,11 @@ list getMenuButtons()
 
 takeKeys()
 {
-    if(isOwned() && !currentUserIsOwner())
-    {
-        llSay(0, "Ow no! You cant become the owner");   
+    if(isOwned())
         return;
-    }
     
     ownerKey = dialogUser;
+    
     llSay(0, llGetDisplayName(ownerKey) + " is now the owner.");
     
     updateRestrictions();
@@ -140,24 +137,25 @@ leaveKey()
 {
     if(!currentUserIsOwner())
     {
-        llSay(0, "You cannot leave a key if you are not the owner");   
+        llSay(0, "You are not the owner");   
         return;   
     }
     
     removeOwnerException();
     
     llSay(0, llGetDisplayName(ownerKey) + " is not an owner anymore.");
-    ownerKey = NULL_KEY;
     
+    ownerKey = NULL_KEY;
     updateRestrictions();
 }
-
 
 
 freeDialog()
 {
     llSetTimerEvent(0);
     dialogUser = NULL_KEY;
+    
+    llOwnerSay("Ownerk: " + (string)ownerKey);
 }
 
 
@@ -166,19 +164,26 @@ default
 
     state_entry()
     {
-        //llOwnerSay("@clear");
-
+        
+        //llOwnerSay("@clear"); 
         llOwnerSay("Listening on channel " + (string)dialogChannel);
+        llOwnerSay("Ownerk: " + (string)ownerKey);
+        
+        if(isOwned())
+            llOwnerSay(llGetDisplayName(ownerKey) + " is now the owner.");
+        else
+            llOwnerSay("Nobody owns you");     
         
         llSensorRepeat("", NULL_KEY, AGENT, range, PI, interval);
         
+        llListenRemove(dialogListenHandler);
         dialogListenHandler = llListen(dialogChannel, "", "", "");
     }
     
-    
+     
     on_rez(integer start_param)
     {
-        updateRestrictions(); 
+        updateRestrictions();  
     }
     
     
@@ -225,9 +230,8 @@ default
             
         } else if(message == DIALOG_EXIT)
         {
-            freeDialog();
+            freeDialog(); 
         }
     }
 
-    
 }
