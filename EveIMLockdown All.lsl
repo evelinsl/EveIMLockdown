@@ -4,7 +4,7 @@
 ///
 /// Check out the Github page for documentation:
 /// https://github.com/evelinsl/EveIMLockdown
-/// 
+///  
 
 float range = 20.0;  // Meters
 float interval = 5; // Seconds
@@ -164,8 +164,6 @@ default
 
     state_entry()
     {
-        
-        //llOwnerSay("@clear"); 
         llOwnerSay("Listening on channel " + (string)dialogChannel);
         llOwnerSay("Ownerk: " + (string)ownerKey);
         
@@ -216,7 +214,6 @@ default
             dialogUser = id;
             
             llSetTimerEvent(30);
-            llListen(dialogChannel, "", dialogUser, "");
             
             showMenu();
             
@@ -230,7 +227,7 @@ default
             
         } else if(message == DIALOG_EXIT)
         {
-            freeDialog(); 
+            freeDialog();  
         }
     }
 
