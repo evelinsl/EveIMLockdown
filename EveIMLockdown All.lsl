@@ -8,7 +8,7 @@
 
 float range = 20.0;           // Radius in meters around your avatar
 float interval = 20;          // Update interval, do not set it to low!
-integer dialogChannel = 333;  // Type "/666 menu" to open the menu (or change the channel)
+integer dialogChannel = 666;  // Type "/666 menu" to open the menu (or change the channel)
 
 // Do not edit anything belong this line!
 
@@ -307,9 +307,7 @@ processDetectedAvatars(list avatars)
     
     updateRestrictions(TRUE, add);
     updateRestrictions(FALSE, remove);
-    
-    list testList = [];
-    
+        
     
     //llOwnerSay(llList2Json(JSON_ARRAY, blockedAvatars));
     
