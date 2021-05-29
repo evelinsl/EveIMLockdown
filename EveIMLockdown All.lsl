@@ -8,7 +8,7 @@
 
 float range = 20.0;           // Radius in meters around your avatar
 float interval = 20;          // Update interval, do not set it to low!
-integer dialogChannel = 666;  // Type "/666 menu" to open the menu (or change the channel)
+integer dialogChannel = 333;  // Type "/666 menu" to open the menu (or change the channel)
 
 // Do not edit anything belong this line!
 
@@ -83,12 +83,11 @@ clearRestrictions()
 ///
 updateOwnerRestrictions(integer adding)
 {
-    return;
     string add = "add";
     if(adding == 0)
         add = "rem"; 
         
-    llOwnerSay("Owned? " + add);    
+    //llOwnerSay("Owned? " + add);    
         
     llOwnerSay("@sendim:" + (string)ownerKey + "=" + add);
     llOwnerSay("@startim:" + (string)ownerKey + "=" + add);
@@ -330,6 +329,8 @@ processDetectedAvatars(list avatars)
 ///
 tick()
 {
+    //llOwnerSay("TICK!");
+    
     list avatars = getAvatarsInRange(range);
 
     if(llGetListLength(avatars) == 0)
